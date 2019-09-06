@@ -1,20 +1,21 @@
 package com.codeup.springblog.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
 class PostController {
     @GetMapping(path = "/posts")
-    @ResponseBody
-    public String welcome(){
-        return "<h3>Here are all the posts!</h3>"+
-                "<ul>"+
-                "<li>1</li>"+
-                "<li>2</li>"+
-                "<li>3</li>"+
-                "<li>4</li>"+
-                "</ul>";
+    public String index(@PathVariable String index, Model model) {
+        model.addAttribute("index", index);
+        return "/posts/index";
+    }
+
+    @GetMapping("/posts/show")
+    public String show(@PathVariable String post, Model model) {
+        model.addAttribute("post", post);
+        return "/posts/show";
     }
 
     @RequestMapping(path = "/posts/{id}", method = RequestMethod.GET)

@@ -11,9 +11,9 @@ public class HomeController {
         return "<h2>This is the landing page!</h2>";
     }
 
-//    Dice Roll
+//    Dice Roll   //
     @GetMapping("/roll-dice")
     public String dice() {
-        return "Pick a number. Roll the dice.";
+        return "/roll-dice";
     }
 }
