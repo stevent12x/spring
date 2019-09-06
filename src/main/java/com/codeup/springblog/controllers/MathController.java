@@ -17,7 +17,7 @@ class MathController {
         return number2 + " minus " +number1+ " equals " + (number2 - number1) + "!";
     }
 
-    @RequestMapping(value = "multiply/{num1}/and/{num2}", method = RequestMethod.GET)
+    @GetMapping(value = "multiply/{num1}/and/{num2}")
     @ResponseBody
     public String multiplication(@PathVariable int num1, @PathVariable int num2){
         return num1 +" times "+num2+ " is " +(num1*num2)+"!";
