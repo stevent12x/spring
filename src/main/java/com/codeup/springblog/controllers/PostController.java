@@ -6,17 +6,27 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 class PostController {
+
+    // Roll-Dice Controller //
+
+    @GetMapping(path="/dice")
+    public String dice() {
+        return "roll-dice";
+    }
+
+    // SpringBlog Controllers //
+
     @GetMapping(path = "/posts")
-    public String index(@PathVariable String index, Model model) {
-        model.addAttribute("index", index);
+    public String index() {
         return "/posts/index";
     }
 
     @GetMapping("/posts/show")
-    public String show(@PathVariable String post, Model model) {
-        model.addAttribute("post", post);
+    public String show() {
         return "/posts/show";
     }
+
+
 
     @RequestMapping(path = "/posts/{id}", method = RequestMethod.GET)
     @ResponseBody
