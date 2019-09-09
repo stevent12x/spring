@@ -16,8 +16,6 @@ public class Post {
     @Column (name = "first_name", nullable = false, length = 50)
     private String authorFirstName;
 
-
-
     public Post() {}
 
     public Post(Long id) {

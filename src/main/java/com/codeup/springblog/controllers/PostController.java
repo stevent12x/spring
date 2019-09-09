@@ -14,21 +14,17 @@ class PostController {
         this.postDao = postDao;
     }
 
-
     // Roll-Dice Controller //
-
     @GetMapping(path="/dice")
     public String dice() {
         return "/roll-dice";
     }
 
     // SpringBlog Controllers //
-
     @GetMapping(path = "/posts")
     public String index(Model model) {
         model.addAttribute("posts", postDao.findAll())  ;
         return "/index";
-
     }
 
     @GetMapping("/posts/show")
