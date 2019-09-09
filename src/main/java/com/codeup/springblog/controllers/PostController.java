@@ -1,17 +1,18 @@
 package com.codeup.springblog.controllers;
 
+import com.codeup.springblog.models.Post;
 import com.codeup.springblog.repos.PostRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 class PostController {
 
     private final PostRepository postDao;
 
-    PostController(PostRepository postDao) {
-        this.postDao = postDao;
+    PostController(PostRepository postRepository) {
+        postDao = postRepository;
     }
 
     // Roll-Dice Controller //
@@ -22,13 +23,15 @@ class PostController {
 
     // SpringBlog Controllers //
     @GetMapping(path = "/posts")
-    public String index(Model model) {
-        model.addAttribute("posts", postDao.findAll())  ;
+    public String index(Model viewModel) {
+        Iterable<Post> posts = postDao.findAll();
+        viewModel.addAttribute("posts", posts);
         return "/index";
     }
 
     @GetMapping("/posts/show")
-    public String show() {
+    public String show(Post post) {
+        postDao.deletePostBy(post.getId());
         return "/show";
     }
 

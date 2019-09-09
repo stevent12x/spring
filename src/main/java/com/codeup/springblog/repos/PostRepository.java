@@ -2,6 +2,8 @@ package com.codeup.springblog.repos;
 
 import com.codeup.springblog.models.Post;
 import org.springframework.data.repository.CrudRepository;
+
+import javax.management.Query;
 //import org.springframework.stereotype.Repository;
 
 public interface PostRepository extends CrudRepository <Post, Long> {
@@ -11,4 +13,7 @@ public interface PostRepository extends CrudRepository <Post, Long> {
     Post findPostByTitle(String title);
     Post deletePostBy(Long id);
     Post deletePostByTitle(String title);
+//
+//    @Query("from posts p where p.title=title")
+//        Post getPostByTitle(String title);
 }

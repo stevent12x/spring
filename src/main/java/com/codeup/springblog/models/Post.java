@@ -5,10 +5,10 @@ import javax.persistence.*;
 @Table( name = "posts")
 public class Post {
     @Id @GeneratedValue
-    private Long id;
+    public Long id;
 
     @Column (nullable = false)
-    private String title;
+    public String title;
 
     @Column (name = "last_name", nullable = false, length = 50)
     private String authorLastName;
@@ -43,6 +43,7 @@ public class Post {
     public String getAuthorFirstName() { return authorFirstName; }
 
     public void setAuthorFirstName(String authorFirstName) { this.authorFirstName = authorFirstName; }
+
 }
 
 
