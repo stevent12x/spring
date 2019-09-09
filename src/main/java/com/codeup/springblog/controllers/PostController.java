@@ -11,19 +11,19 @@ class PostController {
 
     @GetMapping(path="/dice")
     public String dice() {
-        return "roll-dice";
+        return "/roll-dice";
     }
 
     // SpringBlog Controllers //
 
     @GetMapping(path = "/posts")
     public String index() {
-        return "/posts/index";
+        return "/index";
     }
 
     @GetMapping("/posts/show")
     public String show() {
-        return "/posts/show";
+        return "/show";
     }
 
 
