@@ -9,10 +9,9 @@
     <div class="card post">
         <div class="card-post" th:each="post : ${posts}">
             <div class="card-body">
-                <h3 class="card-title" th:text="${post.title}"></h3>
-                <p class="card-content" th:text="${post.content}"></p>
-                <hr>
-                <p class="card-author" th:text="${post.authorFirstName+post.authorLastName}"></p>
+                <h3 class="card-title" th:text="${post.title}"/>
+                <p class="card-content" th:text="${post.content}"/>
+                <a href="#" th:text="${post.user.email}"/>
             </div>
         </div>
     </div>

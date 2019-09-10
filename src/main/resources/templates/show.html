@@ -5,6 +5,13 @@
     <link rel="stylesheet" href="/css/home.css" />
 </head>
 <body>
-<p>This is where individual posts will be</p>
+<main class="container">
+    <div class="card">
+        <h3 class="card-title" th:text="${post.title}"/>
+        <p class="card-text" th:text="${post.content}"/>
+        <a href="#" th:text="${post.user.email}"/>
+    </div>
+</main>
+
 </body>
 </html>
