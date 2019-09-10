@@ -1,7 +1,9 @@
 package com.codeup.springblog.controllers;
 
 import com.codeup.springblog.models.Post;
+import com.codeup.springblog.models.User;
 import com.codeup.springblog.repos.PostRepository;
+import com.codeup.springblog.repos.UserRepository;
 import javafx.geometry.Pos;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,16 +16,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 class PostController {
 
     private final PostRepository postDao;
+    private final UserRepository userDao;
 
-    PostController(PostRepository postRepository) {
-        postDao = postRepository;
+    public PostController(PostRepository postRepo, UserRepository userRepo) {
+        this.userDao = userRepo;
+        this.postDao = postRepo;
     }
-
-    // Roll-Dice Controller //
-    @GetMapping(path="/dice")
-    public String dice() {
-        return "/roll-dice";
-    }
+//
+//    // Roll-Dice Controller //
+//    @GetMapping(path="/dice")
+//    public String dice() {
+//        return "/roll-dice";
+//    }
 
     // SpringBlog Controllers //
     @GetMapping(path = "/posts")
@@ -54,13 +58,19 @@ class PostController {
     @PostMapping("/posts/create")
     public String createPost(
             @RequestParam(name = "title") String titleParam,
+            @RequestParam(name = "content") String contentParam,
             @RequestParam(name = "authorFirstName") String authorFirstNameParam,
             @RequestParam(name = "authorLastName") String authorLastNameParam
     ) {
+        User userDB = userDao.findOne(1L);
         Post postToBeCreated = new Post();
+
         postToBeCreated.setTitle(titleParam);
+        postToBeCreated.setContent(contentParam);
         postToBeCreated.setAuthorFirstName(authorFirstNameParam);
         postToBeCreated.setAuthorLastName(authorLastNameParam);
+        postToBeCreated.setUser(userDB);
+
         Post newPost = postDao.save(postToBeCreated);
         return "redirect:/show/" + newPost.getId();
     }

@@ -6,8 +6,15 @@
 </head>
 <body>
 <main class="container">
-<p>Here is will all the posts will be</p>
-
+    <div class="card post">
+        <div class="card-post" th:each="post : ${posts}">
+            <div class="card-body">
+                <h3 class="card-title" th:text="${post.title}"></h3>
+                <p class="card-content" th:text="${post.content}"></p>
+                <p class="card-author" th:text="${post.authorFirstName +  post.authorLastName}"></p>
+            </div>
+        </div>
+    </div>
 </main>
 </body>
 </html>
