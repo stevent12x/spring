@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Table( name = "posts")
 public class Post {
     @Id @GeneratedValue
-    public Long id;
+    public long id;
 
     @Column (nullable = false)
     public String title;
@@ -16,13 +16,13 @@ public class Post {
     @Column (name = "first_name", nullable = false, length = 50)
     private String authorFirstName;
 
+
+//    Empty Constructor - required by JPA
     public Post() {}
 
-    public Post(Long id) {
+//    Recommended Contructor with Everything - gives ability to read everything from the database
+    public Post(long id, String title, String authorLastName, String authorFirstName) {
         this.id = id;
-    }
-
-    public Post(String title, String authorLastName, String authorFirstName) {
         this.title = title;
         this.authorLastName = authorLastName;
         this.authorFirstName = authorFirstName;
