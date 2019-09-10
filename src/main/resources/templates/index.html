@@ -4,20 +4,20 @@
     <th:block th:replace="fragments/header :: main-header('Home')" />
 </head>
 <body>
-<div th:include="fragments/header :: main-header('Posts')"/>
+<th:block th:replace="fragments/navbar :: top-nav"/>
 
-    <main class="container">
-        <div class="card post">
-            <div class="card-post" th:each="post : ${posts}">
-                <div class="card-body">
-                    <h3 class="card-title" th:text="${post.title}"/>
-                    <p class="card-content" th:text="${post.content}"/>
+    <main>
+        <div>
+            <div th:each="post : ${posts}">
+                <div>
+                    <h3 th:text="${post.title}"/>
+                    <p th:text="${post.content}"/>
                     <a href="#" th:text="${post.user.email}"/>
                 </div>
             </div>
         </div>
     </main>
 
-    <div th:include="fragments/footer :: main-footer"/>
+    <th:block th:include="fragments/footer :: main-footer"/>
 </body>
 </html>
