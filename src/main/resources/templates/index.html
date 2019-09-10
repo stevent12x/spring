@@ -4,7 +4,8 @@
     <th:block th:replace="fragments/header :: main-header('Home')" />
 </head>
 <body>
-<th:block th:replace="fragments/header :: main-header('Posts')"/>
+<div th:include="fragments/header :: main-header('Posts')"/>
+
     <main class="container">
         <div class="card post">
             <div class="card-post" th:each="post : ${posts}">
@@ -16,6 +17,7 @@
             </div>
         </div>
     </main>
-    <th:block th:replace="fragments/footer :: main-footer"/>
+
+    <div th:include="fragments/footer :: main-footer"/>
 </body>
 </html>
