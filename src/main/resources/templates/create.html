@@ -4,6 +4,8 @@
     <th:block th:replace="fragments/header :: main-header('Create Post')" />
 </head>
 <body>
+<th:block th:replace="fragments/navbar :: top-nav"/>
+
 <main class="container">
 
     <form th:action="@{'/posts/create'}" th:method="post">
@@ -13,7 +15,7 @@
         <input type="text" name="authorLastName"/>
         <button class="btn btn-info">Post</button>
     </form>
-
+<th:block th:replace="fragments/footer :: main-footer"/>
 </main>
 </body>
 </html>

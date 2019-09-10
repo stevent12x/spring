@@ -5,6 +5,8 @@
     <link rel="stylesheet" href="/css/home.css" />
 </head>
 <body>
+<th:block th:replace="fragments/navbar :: top-nav"/>
+
 <main class="container">
     <div class="card">
         <h3 class="card-title" th:text="${post.title}"/>
@@ -12,6 +14,6 @@
         <a href="#" th:text="${post.user.email}"/>
     </div>
 </main>
-
+<th:block th:replace="fragments/footer :: main-footer"/>
 </body>
 </html>

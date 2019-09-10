@@ -4,7 +4,6 @@ import com.codeup.springblog.models.Post;
 import com.codeup.springblog.models.User;
 import com.codeup.springblog.repos.PostRepository;
 import com.codeup.springblog.repos.UserRepository;
-import javafx.geometry.Pos;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,12 +21,6 @@ class PostController {
         this.userDao = userRepo;
         this.postDao = postRepo;
     }
-//
-//    // Roll-Dice Controller //
-//    @GetMapping(path="/dice")
-//    public String dice() {
-//        return "/roll-dice";
-//    }
 
     // SpringBlog Controllers //
     @GetMapping(path = "/posts")
