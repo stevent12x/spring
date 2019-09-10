@@ -10,6 +10,9 @@ public class Post {
     @Column (nullable = false)
     public String title;
 
+    @Column (nullable = false)
+    public String content;
+
     @Column (name = "last_name", nullable = false, length = 50)
     private String authorLastName;
 
@@ -17,20 +20,23 @@ public class Post {
     private String authorFirstName;
 
 
+
+
 //    Empty Constructor - required by JPA
     public Post() {}
 
 //    Recommended Contructor with Everything - gives ability to read everything from the database
-    public Post(long id, String title, String authorLastName, String authorFirstName) {
+    public Post(long id, String title, String content, String authorLastName, String authorFirstName) {
         this.id = id;
         this.title = title;
+        this.content = content;
         this.authorLastName = authorLastName;
         this.authorFirstName = authorFirstName;
     }
 
-    public Long getId() { return id; }
+    public long getId() { return id; }
 
-    public void setId(Long id) { this.id = id; }
+    public void setId(long id) { this.id = id; }
 
     public String getTitle() { return title; }
 
@@ -44,6 +50,13 @@ public class Post {
 
     public void setAuthorFirstName(String authorFirstName) { this.authorFirstName = authorFirstName; }
 
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 }
 
 
