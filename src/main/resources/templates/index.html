@@ -7,12 +7,16 @@
 <th:block th:replace="fragments/navbar :: top-nav"/>
 
     <main>
-        <div>
-            <div th:each="post : ${posts}">
-                <div>
+        <div class="card-columns">
+            <div th:each="post : ${posts}" class="card">
+                <div class="card-body">
                     <h3 th:text="${post.title}"/>
                     <p th:text="${post.content}"/>
-                    <a href="#" th:text="${post.user.email}"/>
+                    <br/>
+                    <span>Email: </span><a href="#" th:text="${post.user.email}"/>
+                    <br/>
+                    <a th:href="@{/show/{id}(id=${post.id})}" class="btn btn-primary">Show Post</a>
+                    <a th:href="@{/posts/{id}/edit(id=${post.id})}" class="btn btn-warning">Edit Post</a>
                 </div>
             </div>
         </div>
