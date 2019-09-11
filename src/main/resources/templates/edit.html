@@ -17,10 +17,13 @@
         <br/>
         Author Last Name: <input type="text" name="authorLastName" th:field="*{authorLastName}"/>
         <br/>
-        <button class="btn btn-warning">Edit</button>
+        <button class="btn btn-warning">Edit Post</button>
     </form>
     <form th:action="@{'/posts/' + ${id} + '/delete'}" method="post">
-        <button class="btn btn-danger">Delete</button>
+        <button class="btn btn-danger">Delete Post</button>
+    </form>
+    <form th:action="@{'/posts'}">
+        <button class="btn btn-primary">Back to Home</button>
     </form>
 </main>
 </body>
