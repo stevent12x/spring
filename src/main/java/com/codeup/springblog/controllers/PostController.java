@@ -57,15 +57,33 @@ class PostController {
     }
 
     @GetMapping("/posts/{id}/edit")
-    public String editPost(@PathVariable long id) {
-        postDao.findOne(id);
+    public String editPost(@PathVariable long id, Model vModel){
+        Post post = postDao.findOne(id);
+        vModel.addAttribute("post", post);
         return "/edit";
     }
 
     @PostMapping("/posts/{id}/edit")
-    public String editPost(@PathVariable long id, @ModelAttribute Post post) {
-        postDao.findOne(id);
-        postDao.save(post);
-        return "redirect:/show/" + post.id;
+    public String updatePost(@PathVariable long id,
+                           @RequestParam(name = "title") String title,
+                           @RequestParam(name = "content") String content,
+                           @RequestParam(name = "authorFirstName") String authorFirstName,
+                           @RequestParam(name = "authorLastName") String authorLastName,
+                           Model vmodel) {
+        Post postToBeUpdated = postDao.findOne(id);
+        postToBeUpdated.setTitle(title);
+        postToBeUpdated.setContent(content);
+        postToBeUpdated.setAuthorFirstName(authorFirstName);
+        postToBeUpdated.setAuthorLastName(authorLastName);
+        postDao.save(postToBeUpdated);
+        return "redirect:/show/" + postToBeUpdated.getId();
     }
+
+    @PostMapping("/posts/{id}/delete")
+    public String deletePost(@PathVariable long id, Model vModel){
+        Post post = postDao.findOne(id);
+        postDao.delete(post);
+        return "redirect:/posts";
+    }
+
 }
