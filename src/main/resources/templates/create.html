@@ -9,10 +9,10 @@
 <main class="container">
 
     <form th:action="@{'/posts/create'}" th:method="post">
-        <input type="text" name="title"/>
-        <input type="text" name="content"/>
-        <input type="text" name="authorFirstName"/>
-        <input type="text" name="authorLastName"/>
+        Title: <input type="text" name="title"/><br>
+        Content: <input type="text" name="content"/><br>
+        Author First Name: <input type="text" name="authorFirstName"/><br>
+        Author Last Name: <input type="text" name="authorLastName"/><br>
         <button class="btn btn-info">Post</button>
     </form>
 <th:block th:replace="fragments/footer :: main-footer"/>
