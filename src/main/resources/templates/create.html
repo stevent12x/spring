@@ -9,13 +9,13 @@
 <main class="container">
 
     <form th:action="@{'/posts/create'}" th:method="post" th:object="${post}">
-        Title: <input th:field="*{title}"/>
+        Title: <input type="text" th:field="*{title}"/>
         <br/>
-        Content: <input th:field="*{content}"/>
+        Content: <textarea th:field="*{content}"/>
         <br/>
-        Author First Name: <input th:field="*{authorFirstName}"/>
+        Author First Name: <input type="text" th:field="*{authorFirstName}"/>
         <br/>
-        Author Last Name: <input th:field="*{authorLastName}"/>
+        Author Last Name: <input type="text" th:field="*{authorLastName}"/>
         <br/>
         <button class="btn btn-info">Post</button>
     </form>
