@@ -33,12 +33,12 @@ class PostController {
         viewModel.addAttribute("post", post);
         return "/show";
     }
-
-    @PostMapping("/posts/{id}/delete")
-    public String delete(@PathVariable long id) {
-        postDao.delete(id);
-        return "redirect:/posts";
-    }
+//
+//    @PostMapping("/posts/{id}/edit")
+//    public String delete(@PathVariable long id) {
+//        postDao.delete(id);
+//        return "redirect:/posts";
+//    }
 
     @GetMapping("/posts/create")
     public String showCreateForm(Model model) {
@@ -48,22 +48,24 @@ class PostController {
 
     @PostMapping("/posts/create")
     public String createPost(
-//            @RequestParam(name = "title") String titleParam,
-//            @RequestParam(name = "content") String contentParam,
-//            @RequestParam(name = "authorFirstName") String authorFirstNameParam,
-//            @RequestParam(name = "authorLastName") String authorLastNameParam
             @ModelAttribute Post post
     ) {
         User userDB = userDao.findOne(1L);
-//        Post postToBeCreated = new Post();
-//
-//        postToBeCreated.setTitle(titleParam);
-//        postToBeCreated.setContent(contentParam);
-//        postToBeCreated.setAuthorFirstName(authorFirstNameParam);
-//        postToBeCreated.setAuthorLastName(authorLastNameParam);
         post.setUser(userDB);
         postDao.save(post);
-//        Post newPost = postDao.save(postToBeCreated);
         return "redirect:/show/" + post.getId();
+    }
+
+    @GetMapping("/posts/{id}/edit")
+    public String editPost(@PathVariable long id) {
+        postDao.findOne(id);
+        return "/edit";
+    }
+
+    @PostMapping("/posts/{id}/edit")
+    public String editPost(@PathVariable long id, @ModelAttribute Post post) {
+        postDao.findOne(id);
+        postDao.save(post);
+        return "redirect:/show/" + post.id;
     }
 }
