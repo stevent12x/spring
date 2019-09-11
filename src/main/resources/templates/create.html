@@ -8,11 +8,15 @@
 
 <main class="container">
 
-    <form th:action="@{'/posts/create'}" th:method="post">
-        <input type="text" name="title"/>
-        <input type="text" name="content"/>
-        <input type="text" name="authorFirstName"/>
-        <input type="text" name="authorLastName"/>
+    <form th:action="@{'/posts/create'}" th:method="post" th:object="${post}">
+        Title: <input th:field="*{title}"/>
+        <br/>
+        Content: <input th:field="*{content}"/>
+        <br/>
+        Author First Name: <input th:field="*{authorFirstName}"/>
+        <br/>
+        Author Last Name: <input th:field="*{authorLastName}"/>
+        <br/>
         <button class="btn btn-info">Post</button>
     </form>
 <th:block th:replace="fragments/footer :: main-footer"/>
