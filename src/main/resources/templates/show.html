@@ -2,16 +2,18 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <th:block th:replace="fragments/header :: main-header('Show Post')" />
-    <link rel="stylesheet" href="/css/home.css" />
 </head>
 <body>
-<div th:include="fragments/navbar :: top-nav"/>
 
-<main class="container">
+<th:block th:replace="fragments/navbar :: top-nav"/>
+
+<main class="container card-column">
     <div class="card">
+    <div class="card-body">
         <h3 class="card-title" th:text="${post.title}"/>
         <p class="card-text" th:text="${post.content}"/>
-        <a href="#" th:text="${post.user.email}"/>
+        <span>User Email: </span><a href="#" th:text="${post.user.email}"/>
+    </div>
     </div>
 </main>
 <div th:include="fragments/footer :: main-footer"/>

@@ -6,10 +6,7 @@ import com.codeup.springblog.repos.PostRepository;
 import com.codeup.springblog.repos.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 class PostController {
@@ -36,35 +33,57 @@ class PostController {
         viewModel.addAttribute("post", post);
         return "/show";
     }
-
-    @PostMapping("/posts/{id}/delete")
-    public String delete(@PathVariable long id) {
-        postDao.delete(id);
-        return "redirect:/posts";
-    }
+//
+//    @PostMapping("/posts/{id}/edit")
+//    public String delete(@PathVariable long id) {
+//        postDao.delete(id);
+//        return "redirect:/posts";
+//    }
 
     @GetMapping("/posts/create")
-    public String showCreateForm() {
+    public String showCreateForm(Model model) {
+        model.addAttribute("post", new Post());
         return "/create";
     }
 
     @PostMapping("/posts/create")
     public String createPost(
-            @RequestParam(name = "title") String titleParam,
-            @RequestParam(name = "content") String contentParam,
-            @RequestParam(name = "authorFirstName") String authorFirstNameParam,
-            @RequestParam(name = "authorLastName") String authorLastNameParam
+            @ModelAttribute Post post
     ) {
         User userDB = userDao.findOne(1L);
-        Post postToBeCreated = new Post();
-
-        postToBeCreated.setTitle(titleParam);
-        postToBeCreated.setContent(contentParam);
-        postToBeCreated.setAuthorFirstName(authorFirstNameParam);
-        postToBeCreated.setAuthorLastName(authorLastNameParam);
-        postToBeCreated.setUser(userDB);
-
-        Post newPost = postDao.save(postToBeCreated);
-        return "redirect:/show/" + newPost.getId();
+        post.setUser(userDB);
+        postDao.save(post);
+        return "redirect:/show/" + post.getId();
     }
+
+    @GetMapping("/posts/{id}/edit")
+    public String editPost(@PathVariable long id, Model vModel){
+        Post post = postDao.findOne(id);
+        vModel.addAttribute("post", post);
+        return "/edit";
+    }
+
+    @PostMapping("/posts/{id}/edit")
+    public String updatePost(@PathVariable long id,
+                           @RequestParam(name = "title") String title,
+                           @RequestParam(name = "content") String content,
+                           @RequestParam(name = "authorFirstName") String authorFirstName,
+                           @RequestParam(name = "authorLastName") String authorLastName,
+                           Model vmodel) {
+        Post postToBeUpdated = postDao.findOne(id);
+        postToBeUpdated.setTitle(title);
+        postToBeUpdated.setContent(content);
+        postToBeUpdated.setAuthorFirstName(authorFirstName);
+        postToBeUpdated.setAuthorLastName(authorLastName);
+        postDao.save(postToBeUpdated);
+        return "redirect:/show/" + postToBeUpdated.getId();
+    }
+
+    @PostMapping("/posts/{id}/delete")
+    public String deletePost(@PathVariable long id, Model vModel){
+        Post post = postDao.findOne(id);
+        postDao.delete(post);
+        return "redirect:/posts";
+    }
+
 }
