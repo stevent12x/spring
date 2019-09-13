@@ -2,41 +2,37 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <body>
 
-<nav class="navbar navbar-default d-flex" role="navigation" style="background-color: #9f9f9f; border-bottom: 1px solid #222222" th:fragment="top-nav">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-        <a class="navbar-brand" th:href="@{/posts}">SpringBlogApp</a>
-
-        <button type="button" class="navbar-toggle d-flex justify-content-end bd-highlight" data-toggle="collapse" data-target=".navbar-ex1-collapse" style="border: 1px solid black; color: #4f5d6e;">Main Menu
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-<!--        <a class="navbar-brand" href="#">SpringBlogApp</a>-->
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-        <ul class="nav navbar-nav">
-            <hr/>
-            <li class="active"><a th:href="@{/posts}">Home</a></li>
-            <li><a href="#">Profile</a></li>
-        </ul>
-        <hr/>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a th:href="@{/posts/create}">Make a Post</a></li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li><a href="#">Separated link</a></li>
-                </ul>
+<nav th:fragment="top-nav" class="navbar navbar-light navbar-expand-md bg-light justify-content-md-center justify-content-start">
+    <a class="navbar-brand d-md-none d-inline" href="">Brand</a>
+    <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="nav-link" href="#"><img src="../fragments/img/search-solid.svg" th:attr="src=@{img/search-solid.svg}"></img></a>
+    <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
+        <ul class="navbar-nav mx-auto text-md-center text-left">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/posts}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Profile</a>
+            </li>
+            <li class="nav-item my-auto">
+                <a class="nav-link navbar-brand mx-0 d-none d-md-inline" href="">SpringBlog</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/posts/create}">Post</a>
+            </li>
+            <li class="nav-item">
+                <form th:action="@{/logout}" th:method="post">
+                    <a class="nav-link">Logout</a>
+                </form>
             </li>
         </ul>
-    </div><!-- /.navbar-collapse -->
+        <ul class="nav navbar-nav flex-row justify-content-md-center justify-content-start flex-nowrap">
+            <li class="nav-item"><a class="nav-link" href=""><i class="fa fa-facebook mr-1"></i></a> </li>
+            <li class="nav-item"><a class="nav-link" href=""><i class="fa fa-twitter"></i></a> </li>
+        </ul>
+    </div>
 </nav>
 </body>
 </html>
