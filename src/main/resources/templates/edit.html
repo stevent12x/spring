@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <th:block th:replace="fragments/header :: main-header('Edit Post')" />
     <link rel="stylesheet" href="/css/home.css" />
@@ -17,10 +19,13 @@
         <br/>
         Author Last Name: <input type="text" name="authorLastName" th:field="*{authorLastName}"/>
         <br/>
-        <button class="btn btn-warning">Edit</button>
+        <button class="btn btn-warning">Edit Post</button>
     </form>
     <form th:action="@{'/posts/' + ${id} + '/delete'}" method="post">
-        <button class="btn btn-danger">Delete</button>
+        <button class="btn btn-danger">Delete Post</button>
+    </form>
+    <form th:action="@{'/posts'}">
+        <button class="btn btn-primary">Back to Home</button>
     </form>
 </main>
 </body>
