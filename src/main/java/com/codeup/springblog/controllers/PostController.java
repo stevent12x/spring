@@ -6,6 +6,7 @@ import com.codeup.springblog.repos.PostRepository;
 import com.codeup.springblog.repos.Users;
 import com.codeup.springblog.services.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -49,7 +50,7 @@ class PostController {
     public String createPost(
             @ModelAttribute Post post
     ) {
-        User userDB = userDao.findOne(1L);
+        User userDB = userDao.findOne(((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId());
         post.setUser(userDB);
         postDao.save(post);
         emailService.prepareAndSend(
@@ -75,19 +76,26 @@ class PostController {
                            @RequestParam(name = "authorLastName") String authorLastName,
                            Model vmodel) {
         Post postToBeUpdated = postDao.findOne(id);
-        postToBeUpdated.setTitle(title);
-        postToBeUpdated.setContent(content);
-        postToBeUpdated.setAuthorFirstName(authorFirstName);
-        postToBeUpdated.setAuthorLastName(authorLastName);
-        postDao.save(postToBeUpdated);
-        return "redirect:/show/" + postToBeUpdated.getId();
+        if (postToBeUpdated.getUser().getId() == ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId()) {
+            postToBeUpdated.setTitle(title);
+            postToBeUpdated.setContent(content);
+            postToBeUpdated.setAuthorFirstName(authorFirstName);
+            postToBeUpdated.setAuthorLastName(authorLastName);
+            postDao.save(postToBeUpdated);
+            return "redirect:/show/" + postToBeUpdated.getId();
+        } else {
+            return "redirect:/posts";
+        }
     }
 
     @PostMapping("/posts/{id}/delete")
-    public String deletePost(@PathVariable long id, Model vModel){
+    public String deletePost(@PathVariable long id, Model vModel) {
         Post post = postDao.findOne(id);
-        postDao.delete(post);
-        return "redirect:/posts";
+        if (post.getUser().getId() == ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId()) {
+            postDao.delete(post);
+            return "redirect:/posts";
+        } else {
+            return "redirect:/posts";
+        }
     }
-
 }
