@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="fragments/header :: main-header('Sign-Up')" />
+    <link rel="stylesheet" href="/css/home.css" />
+</head>
+<body>
+<th:block th:replace="fragments/navbar :: top-nav"/>
+
+<main class="container">
+
+    <h3>Hello! Please Create an Account...</h3>
+    <br/>
+    <form th:action="@{/sign-up}" th:method="post" th:object="${user}">
+        <label for="username">Username</label>
+        <input id="username" type="text" th:field="*{username}"/>
+        <br/>
+        <label for="email">Email</label>
+        <input id="email" type="text" th:field="*{email}">
+        <br/>
+        <label for="password">Password</label>
+        <input id="password" type="password" th:field="*{password}"/>
+
+        <button class="btn btn-primary">Sign Me Up!</button>
+    </form>
+</main>
+</body>
+</html>
