@@ -6,6 +6,7 @@ import com.codeup.springblog.repos.PostRepository;
 import com.codeup.springblog.repos.Users;
 import com.codeup.springblog.services.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -57,7 +58,7 @@ class PostController {
     public String createPost(
             @ModelAttribute Post post
     ) {
-        User userDB = userDao.findOne(1L);
+        User userDB = userDao.findOne(((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId());
         post.setUser(userDB);
         postDao.save(post);
         emailService.prepareAndSend(
