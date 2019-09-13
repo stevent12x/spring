@@ -23,7 +23,9 @@
                 <a class="nav-link" th:href="@{/posts/create}">Post</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <form th:action="@{/logout}" th:method="post">
+                    <a class="nav-link">Logout</a>
+                </form>
             </li>
         </ul>
         <ul class="nav navbar-nav flex-row justify-content-md-center justify-content-start flex-nowrap">
