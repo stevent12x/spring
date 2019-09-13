@@ -11,15 +11,17 @@
 
     <main>
         <div class="card-columns">
-            <div th:each="post : ${posts}" class="card">
+            <div th:each="post : ${posts}" class="card bg-light">
                 <div class="card-body">
                     <h3 th:text="${post.title}"/>
                     <p th:text="${post.content}"/>
                     <br/>
-                    <span>Email: </span><a href="#" th:text="${post.user.email}"/>
+                    <hr/>
+                    <div>User: <a href="#" th:text="${post.user.username}"></a></div>
+                    <div>Email: <a href="#" th:text="${post.user.email}"/></div>
                     <br/>
-                    <a th:href="@{/show/{id}(id=${post.id})}" class="btn btn-primary">Show Post</a>
-                    <a th:href="@{/posts/{id}/edit(id=${post.id})}" class="btn btn-warning">Edit Post</a>
+                    <a th:href="@{/show/{id}(id=${post.id})}" class="btn btn-sm btn-primary">Show Post</a>
+                    <a th:href="@{/posts/{id}/edit(id=${post.id})}" class="btn btn-sm btn-warning">Edit Post</a>
                 </div>
             </div>
         </div>

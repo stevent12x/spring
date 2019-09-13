@@ -12,20 +12,78 @@
 
 <main class="container">
 
-    <h3>Hello! Please Create an Account...</h3>
-    <br/>
-    <form th:action="@{/sign-up}" th:method="post" th:object="${user}">
-        <label for="username">Username</label>
-        <input id="username" type="text" th:field="*{username}"/>
-        <br/>
-        <label for="email">Email</label>
-        <input id="email" type="text" th:field="*{email}"/>
-        <br/>
-        <label for="password">Password</label>
-        <input id="password" type="password" th:field="*{password}"/>
-        <br/>
-        <button class="btn btn-primary">Sign Me Up!</button>
-    </form>
+<!--    <h3>Hello! Please Create an Account...</h3>-->
+<!--    <br/>-->
+<!--    <form th:action="@{/sign-up}" th:method="post" th:object="${user}">-->
+<!--        <label for="username">Username</label>-->
+<!--        <input id="username" type="text" th:field="*{username}"/>-->
+<!--        <br/>-->
+<!--        <label for="email">Email</label>-->
+<!--        <input id="email" type="text" th:field="*{email}"/>-->
+<!--        <br/>-->
+<!--        <label for="password">Password</label>-->
+<!--        <input id="password" type="password" th:field="*{password}"/>-->
+<!--        <br/>-->
+<!--        <button class="btn btn-primary">Sign Me Up!</button>-->
+<!--    </form>-->
+
+    <div class="card bg-light">
+        <article class="card-body mx-auto" style="max-width: 400px;">
+            <h4 class="card-title mt-3 text-center">Create Account</h4>
+            <p class="text-center">Get started with your free account</p>
+            <p>
+                <a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login via Twitter</a>
+                <a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
+            </p>
+            <p class="divider-text text-center mx-auto">
+                <span class="bg-light">-- OR --</span>
+            </p>
+            <form th:action="@{/sign-up}" th:method="post" th:object="${user}">
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                    </div>
+                    <input name="username" class="form-control" placeholder="Username" type="text" th:field="*{username}"/>
+                </div> <!-- form-group// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                    </div>
+                    <input name="email" class="form-control" placeholder="Email address" type="email" th:field="*{email}"/>
+                </div> <!-- form-group// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                    </div>
+                    <select class="custom-select" style="max-width: 120px;">
+                        <option selected="">+971</option>
+                        <option value="1">+972</option>
+                        <option value="2">+198</option>
+                        <option value="3">+701</option>
+                    </select>
+                    <input name="" class="form-control" placeholder="Phone number (optional)" type="text"/>
+                </div> <!-- form-group// -->
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                    </div>
+                    <input id="password" name="password" class="form-control" placeholder="Create password" type="password" th:field="*{password}"/>
+                </div> <!-- form-group// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                    </div>
+                    <input id="repeatPassword" name="repeatPassword" class="form-control" placeholder="Repeat password" type="password"/>
+                </div> <!-- form-group// -->
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
+                </div> <!-- form-group// -->
+                <p class="text-center">Already have an account? <a th:href="@{/login}">Log in</a> </p>
+            </form>
+        </article>
+    </div> <!-- card.// -->
+
 </main>
 </body>
 </html>

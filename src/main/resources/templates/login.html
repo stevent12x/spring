@@ -12,22 +12,40 @@
 
 <main class="container">
 
-    <h3>Welcome! Please Log In...</h3>
-    <div th:if="${param.error}">Invalid Username or Password</div>
-    <div th:if="${param.logout}">You have been logged out.</div>
-    <br/>
-    <form th:action="@{/login}" th:method="post">
-        <label for="username">Username</label>
-        <input id="username" type="text" name="username"/>
-        <br/>
-        <label for="password">Password</label>
-        <input id="password" type="password" name="password"/>
-        <br/>
-        <button class="btn btn-primary">Submit</button>
-    </form>
+    <div class="card bg-light">
+        <article class="card-body mx-auto" style="max-width: 400px;">
+            <h4 class="card-title mt-3 text-center">Log In to Your Account</h4>
+            <div class="text-center" th:if="${param.error}">Invalid username or password</div>
+            <div class="text-center" th:if="${param.logout}">You have been logged out.</div>
+            <p>
+                <a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login via Twitter</a>
+                <a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via Facebook</a>
+            </p>
+            <p class="divider-text text-center mx-auto">
+                <span class="bg-light">-- OR --</span>
+            </p>
+            <form th:action="@{/login}" th:method="post">
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                    </div>
+                    <input id="username" name="username" class="form-control" placeholder="Username" type="text"/>
+                </div> <!-- form-group// -->
 
-    <br/>
-    <h5>Don't have an account? No problem! Click <a th:href="@{/sign-up}">Here</a> to sign up</h5>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                    </div>
+                    <input id="password" name="password" class="form-control" placeholder="Password" type="password"/>
+                </div> <!-- form-group// -->
+
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block"> Sign In </button>
+                </div> <!-- form-group// -->
+                <p class="text-center">Don't have an account? <a th:href="@{/sign-up}">Sign up now!</a> </p>
+            </form>
+        </article>
+    </div> <!-- card.// -->
 </main>
 </body>
 </html>
