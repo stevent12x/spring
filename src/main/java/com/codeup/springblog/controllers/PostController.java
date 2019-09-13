@@ -16,8 +16,6 @@ class PostController {
     private final PostRepository postDao;
     private final Users userDao;
 
-
-
     public PostController(PostRepository postRepo, Users userDao) {
         this.userDao = userDao;
         this.postDao = postRepo;
@@ -40,12 +38,6 @@ class PostController {
         viewModel.addAttribute("post", post);
         return "/show";
     }
-//
-//    @PostMapping("/posts/{id}/edit")
-//    public String delete(@PathVariable long id) {
-//        postDao.delete(id);
-//        return "redirect:/posts";
-//    }
 
     @GetMapping("/posts/create")
     public String showCreateForm(Model model) {
