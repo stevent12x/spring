@@ -116,6 +116,6 @@ class PostController {
 
     @GetMapping("/posts/ajax")
     public String viewAllPostsWithAjax() {
-        return "ads/ajax";
+        return "/ajax";
     }
 }
