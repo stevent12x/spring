@@ -33,6 +33,14 @@ class PostController {
         return "/index";
     }
 
+    @GetMapping(path = "/profile")
+    public String userPosts(Model viewModel, User user) {
+        Iterable<Post> userPosts = postDao.findAll();
+        viewModel.addAttribute("userPosts", userPosts);
+        return "/profile";
+
+    }
+
     @GetMapping("/show/{id}")
     public String show(@PathVariable long id, Model viewModel) {
         Post post = postDao.findOne(id);

@@ -10,22 +10,22 @@
     <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="nav-link" href="#"><img src="../fragments/img/search-solid.svg" th:attr="src=@{img/search-solid.svg}"/></a>
+    <a class="nav-link" href="#"><img th:src="@{${'/img/searchsolid.svg'}}"/></a>
     <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
         <ul class="navbar-nav mx-auto text-md-center text-left" style="position: relative; padding: 2.5rem">
 
             <li class="nav-item col-2">
                 <a class="nav-link " sec:authorize="isAnonymous()" th:href="@{/login}">concede</a>
-                <a class="nav-link" sec:authorize="isAuthenticated()" href="#">who am i?</a>
+                <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/profile}">who am i?</a>
             </li>
             <li class="nav-item col-2">
-                <a class="nav-link" th:href="@{/posts}">who are you?</a>
+                <a class="nav-link" th:href="@{/login}">who are you?</a>
             </li>
             <li class="nav-item my-auto" style="position: relative; margin-top: 1.2rem; padding-top: 0; padding-bottom: 0rem">
                 <a class="nav-link navbar-brand mx-0 d-none d-md-inline" th:href="@{/posts}" style="font-family: Potra; font-size: 1.8rem; padding-top: 1rem">theorems<span id="ampersand" style="font-size: 2.8rem; position: relative; top: 0.25em">&amp;</span>abstractions</a>
             </li>
             <li class="nav-item col-2">
-                <a class="nav-link" th:href="@{/posts/create}">Miscellania and Etceteria</a>
+                <a class="nav-link" th:href="@{/posts/create}">miscellania and etceteria</a>
             </li>
             <li class="nav-item col-2">
 <!--                <form th:action="@{/logout}" th:method="post">-->

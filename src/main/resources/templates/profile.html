@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <th:block th:replace="fragments/header :: main-header('Profile')" />
+
+</head>
+<body>
+<th:block th:replace="fragments/navbar :: top-nav"/>
+
+<main class="container">
+    <div class="row col-12">
+        <div class="card" id="aboutMe" style="border: 1px solid black"></div>
+    </div>
+    <br/>
+    <hr/>
+    <br/>
+    <div class="row col-3">
+        <div class="card" id="postList"> My Posts:
+            <ul th:each="userPost : ${userPosts}">
+                <li th:text="${userPost.title}" />
+<!--                <div th:text="${userPost.title}"/>-->
+            </ul>
+        </div>
+    </div>
+</main>
+</body>
+</html>
