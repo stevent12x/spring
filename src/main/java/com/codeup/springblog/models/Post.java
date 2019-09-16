@@ -1,4 +1,6 @@
 package com.codeup.springblog.models;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -31,6 +33,13 @@ public class Post {
             joinColumns = {@JoinColumn(name="post_id")},
             inverseJoinColumns = {@JoinColumn(name = "category_id")}
     )
+
+//    Setting up Jackson
+    @ManyToOne
+    @JsonManagedReference
+    private User owner;
+
+
     private List<PostCategory> categories;
 
 

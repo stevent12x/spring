@@ -11,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 class PostController {
 
@@ -105,5 +107,15 @@ class PostController {
         } else {
             return "redirect:/posts";
         }
+    }
+
+    @GetMapping("/posts.json")
+    public @ResponseBody List<Post> viewAllPostsInJsonFormat() {
+        return (List<Post>) postDao.findAll();
+    }
+
+    @GetMapping("/posts/ajax")
+    public String viewAllPostsWithAjax() {
+        return "ads/ajax";
     }
 }
