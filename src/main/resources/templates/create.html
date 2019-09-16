@@ -9,7 +9,7 @@
 <body>
 <th:block th:replace="fragments/navbar :: top-nav"/>
 
-<main class="container sign-in-body">
+<main class="container">
 
     <form th:action="@{'/posts/create'}" th:method="post" th:object="${post}">
         Title: <input type="text" th:field="*{title}"/>
