@@ -19,6 +19,12 @@ public class Post {
     @Column (name = "first_name", nullable = false, length = 50)
     private String authorFirstName;
 
+
+//    @Column (name = "owner", length = 100)
+    @ManyToOne
+    @JsonManagedReference
+    private User owner;
+
 //    Create a connection to Users table
     @OneToOne
     private User user;
@@ -34,20 +40,14 @@ public class Post {
             inverseJoinColumns = {@JoinColumn(name = "category_id")}
     )
 
-//    Setting up Jackson
-    @ManyToOne
-    @JsonManagedReference
-    private User owner;
-
-
     private List<PostCategory> categories;
 
 
 //    Empty Constructor - required by JPA
     public Post() {}
 
-//    Recommended Contructor with Everything - gives ability to read everything from the database
-    public Post(long id, String title, String content, String authorLastName, String authorFirstName, User user, List<PostCategory> categories, List<PostImage> images ) {
+    //    Recommended Contructor with Everything - gives ability to read everything from the database
+    public Post(long id, String title, String content, String authorLastName, String authorFirstName, User user, List<PostCategory> categories, List<PostImage> images, User owner ) {
         this.id = id;
         this.title = title;
         this.content = content;
@@ -56,6 +56,7 @@ public class Post {
         this.user = user;
         this.categories = categories;
         this.images = images;
+        this.owner = owner;
     }
 
 
@@ -90,6 +91,10 @@ public class Post {
     public List<PostCategory> getCategories() { return categories; }
 
     public void setCategories(List<PostCategory> categories) { this.categories = categories; }
+
+    public User getOwner() { return owner; }
+
+    public void setOwner(User owner) { this.owner = owner; }
 }
 
 
