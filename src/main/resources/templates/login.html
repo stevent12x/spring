@@ -7,12 +7,12 @@
     <th:block th:replace="fragments/header :: main-header('Log In')" />
     <link rel="stylesheet" href="/css/home.css" />
 </head>
-<body>
+<body class="login-body">
 <th:block th:replace="fragments/navbar :: top-nav"/>
 
-<main class="container">
+<main class="container sign-in-body">
 
-    <div class="card bg-light">
+    <div class="card-login-body">
         <article class="card-body mx-auto" style="max-width: 400px;">
             <h4 class="card-title mt-3 text-center">Log In to Your Account</h4>
             <div class="text-center" th:if="${param.error}">Invalid username or password</div>

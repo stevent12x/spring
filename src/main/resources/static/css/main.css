@@ -4,6 +4,7 @@
      background-color: #ddceba;
      font-family: "IBM Plex Mono";
      font-weight: bold;
+     z-index: 100;
 }
  .navbar {
      background-color: #facd2f;
@@ -27,7 +28,7 @@
  #theorems {
      text-decoration: underline;
      position: relative;
-     font-size: 2.2rem;
+     font-size: 2.4rem;
      bottom: 20px;
      animation: flicker 1.5s infinite alternate;
  }
@@ -44,13 +45,24 @@
      animation: flicker 2.7s infinite alternate;
      color: crimson;
  }
- #image-one {
-     height: 25px;
-     width: 25px;
+
+ #second-col {
+     margin-top: -6px;
+     margin-right: 2px;
+     margin-left: -3px;
+     padding-left: -10px;
      position: relative;
  }
  #last-col {
      margin-top: 9px;
+ }
+ #nav-link {
+     box-shadow: #e8e8be -2.5rem 2.7rem 5rem ;
+     padding: 0px;
+ }
+ .magnifying-glass {
+     height: 18px;
+     width: 18px;
  }
  .m-and-s {
      color: crimson;
@@ -67,6 +79,23 @@
      height: 102%;
      width: 102%;
      border-radius: 2%;
+     cursor: grabbing;
+ }
+ .login-body {
+     background-image: url("../img/CanvaGiraffe.jpg");
+     background-repeat: repeat;
+     z-index: 1000;
+ }
+ .card-login-body {
+     background-image: url("../img/CanavaMonkey.jpg");
+ }
+ .login-body:hover {
+     background-image: url("../img/CanavaMonkey.jpg");
+     z-index: 2000;
+ }
+ .card-login-body:hover {
+     background-image: url("../img/CanvaGiraffe.jpg");
+     z-index: 2000;
  }
 
  @keyframes flicker {

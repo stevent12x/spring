@@ -3,13 +3,14 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 
-<body class="container" style="background-color: antiquewhite">
+<body class="container">
 
 <nav th:fragment="top-nav" class="navbar navbar-expand-md justify-content-md-center justify-content-start">
-<!--    <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">-->
-<!--        <span class="navbar-toggler-icon"></span>-->
-<!--    </button>-->
-    <a class="nav-link" href="#"><img id="image-one" th:src="@{${'/img/searchsolid.svg'}}"/><input name="nav-link" type="textarea" /></a>
+
+    <a class="nav-link" href="#" id="nav-link">
+        <img id="nav-link" class="magnifying-glass" th:src="@{${'/img/searchsolid.svg'}}" />
+        <input id="nav-link" name="nav-link" type="textarea" />
+    </a>
 
     <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
         <ul class="navbar-nav mx-auto text-md-center text-left" id="search-bar">
@@ -18,7 +19,7 @@
                 <a class="nav-link " sec:authorize="isAnonymous()" th:href="@{/login}">concede</a>
                 <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/profile}">who am i?</a>
             </li>
-            <li class="nav-item col-2">
+            <li class="nav-item col-2" id="second-col">
                 <a class="nav-link" th:href="@{/login}">who are you?</a>
             </li>
             <li class="nav-item my-auto title-bar">
