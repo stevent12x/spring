@@ -20,7 +20,6 @@ public class Post {
     private String authorFirstName;
 
 
-//    @Column (name = "owner", length = 100)
     @ManyToOne
     @JsonManagedReference
     private User owner;

@@ -1,5 +1,97 @@
 
 
- .main{
-    background-color: mediumpurple;
+ .main {
+     background-color: #ddceba;
+     font-family: "IBM Plex Mono";
+     font-weight: bold;
 }
+ .navbar {
+     background-color: #facd2f;
+     font-family: "IBM Plex Mono";
+     font-weight: bolder;
+ }
+ #search-bar {
+     position: relative;
+ }
+ #collapsingNavbar2 {
+     position: relative;
+     margin-right: 150px;
+     margin-left: -75px;
+     margin-top: 2.5rem;
+     margin-bottom: 1.5rem;
+ }
+ .title-bar {
+     font-family: Potra;
+     font-size: 3em;
+ }
+ #theorems {
+     text-decoration: underline;
+     position: relative;
+     font-size: 2.2rem;
+     bottom: 20px;
+     animation: flicker 1.5s infinite alternate;
+ }
+ #ampersand {
+     position: relative;
+     font-size: 4rem;
+     offset-rotate: 12deg;
+ }
+ #abstractions {
+     text-decoration: underline;
+     position: relative;
+     font-size: 2.2rem;
+     top: 20px;
+     animation: flicker 2.7s infinite alternate;
+     color: crimson;
+ }
+ #image-one {
+     height: 25px;
+     width: 25px;
+     position: relative;
+ }
+ #last-col {
+     margin-top: 9px;
+ }
+ .m-and-s {
+     color: crimson;
+     box-shadow: #6a6a6a 2.3rem 2.7rem 3rem;
+ }
+ .card-body {
+    background-color: #faebd7;
+     height: 1001%;
+     width: 101%;
+     border-radius: 2%;
+ }
+ .card-body:hover {
+     background-color: #f0f0f0;
+     height: 102%;
+     width: 102%;
+     border-radius: 2%;
+ }
+
+ @keyframes flicker {
+
+     0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+
+         text-shadow: -0.2rem -0.2rem 1rem #cb7b29,
+         0.2rem 0.2rem 1rem #efefef,
+         0 0 2rem #deb437,
+         0 0 4rem #f3c243,
+         0 0 6rem #e6bf31,
+         0 0 8rem #fb9533,
+         0 0 10rem #ee872e;
+
+         box-shadow: 0 0 .5rem #f3d957,
+         inset 0 0 .5rem #f4d759,
+         0 0 2rem #f4c735,
+         inset 0 0 2rem #e4bf31,
+         0 0 4rem #dac54c,
+         inset 0 0 4rem #facb38;
+     }
+
+     20%, 24%, 55% {
+         text-shadow: none;
+         box-shadow: none;
+     }
+ }
+
