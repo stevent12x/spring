@@ -3,33 +3,34 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 
-<body>
+<body class="container" style="background-color: antiquewhite">
 
 <nav th:fragment="top-nav" class="navbar navbar-light navbar-expand-md justify-content-md-center justify-content-start" style="background-color: #90d3d5">
     <a class="navbar-brand d-md-none d-inline" href="">Brand</a>
     <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="nav-link" href="#"><img src="../fragments/img/search-solid.svg" th:attr="src=@{img/search-solid.svg}"></img></a>
+    <a class="nav-link" href="#"><img src="../fragments/img/search-solid.svg" th:attr="src=@{img/search-solid.svg}"/></a>
     <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
-        <ul class="navbar-nav mx-auto text-md-center text-left">
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/posts}">Home</a>
+        <ul class="navbar-nav mx-auto text-md-center text-left" style="position: relative; padding: 2.5rem">
+
+            <li class="nav-item col-2">
+                <a class="nav-link " sec:authorize="isAnonymous()" th:href="@{/login}">concede</a>
+                <a class="nav-link" sec:authorize="isAuthenticated()" href="#">who am i?</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/login}">Log In</a>
-                <a class="nav-link" sec:authorize="isAuthenticated()" href="#">Profile</a>
+            <li class="nav-item col-2">
+                <a class="nav-link" th:href="@{/posts}">who are you?</a>
             </li>
-            <li class="nav-item my-auto">
-                <a class="nav-link navbar-brand mx-0 d-none d-md-inline" th:href="@{/}">SpringBlog</a>
+            <li class="nav-item my-auto" style="position: relative; margin-top: 1.2rem; padding-top: 0; padding-bottom: 0rem">
+                <a class="nav-link navbar-brand mx-0 d-none d-md-inline" th:href="@{/posts}" style="font-family: Potra; font-size: 1.8rem; padding-top: 1rem">theorems<span id="ampersand" style="font-size: 2.8rem; position: relative; top: 0.25em">&amp;</span>abstractions</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/posts/create}">Post</a>
+            <li class="nav-item col-2">
+                <a class="nav-link" th:href="@{/posts/create}">Miscellania and Etceteria</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item col-2">
 <!--                <form th:action="@{/logout}" th:method="post">-->
                 <a class="nav-link" sec:authorize="isAnonymous()" href="#">Only if you're not logged in</a>
-                <a class="nav-link" sec:authorize="isAuthenticated()" th:method="post" th:action="@{/logout}" th:href="@{/posts}">Logout</a>
+                <a class="nav-link" sec:authorize="isAuthenticated()" th:method="post" th:action="@{/logout}" th:href="@{/posts}">in absentia</a>
 <!--                </form>-->
             </li>
         </ul>
