@@ -30,8 +30,8 @@
             </li>
             <li class="nav-item col-2" id="last-col">
 <!--                <form th:action="@{/logout}" th:method="post">-->
-                <a class="nav-link" sec:authorize="isAnonymous()" href="#">Only if you're not logged in</a>
-                <a class="nav-link" sec:authorize="isAuthenticated()" th:method="post" th:action="@{/logout}" th:href="@{/}">in absentia</a>
+<!--                <a class="nav-link" sec:authorize="isAnonymous()" href="#"></a>-->
+                <a class="nav-link" sec:authorize="isAuthenticated()" th:method="post" th:action="@{/logout}" th:href="@{/}">in<br/>abse-<br/>ntia</a>
 <!--                </form>-->
             </li>
         </ul>

@@ -1,7 +1,8 @@
 html, body {
     height: 100%;
-    margin: 0;
-    padding: 0;
+    margin: 1rem;
+    background-color: black;
+
 }
  .main {
      background: #fc4a1a;  /* fallback for old browsers */
@@ -22,11 +23,12 @@ html, body {
  }
  #search-bar {
      position: relative;
+     margin-left: 25%;
  }
  #collapsingNavbar2 {
      position: relative;
-     margin-right: 150px;
-     margin-left: -75px;
+     margin-right: 200px;
+     margin-left: -150px;
      margin-top: 2.5rem;
      margin-bottom: 1.5rem;
  }
@@ -54,7 +56,6 @@ html, body {
      animation: flicker 2.7s infinite alternate;
      color: crimson;
  }
-
  #second-col {
      margin-top: -6px;
      margin-right: 2px;
@@ -63,11 +64,12 @@ html, body {
      position: relative;
  }
  #last-col {
-     margin-top: 9px;
+     margin-top: 19px;
  }
  #nav-link {
      box-shadow: #e8e8be -2.5rem 2.7rem 5rem ;
      padding: 0px;
+     margin-left: 4rem;
  }
  .card {
      height: 7.5%;

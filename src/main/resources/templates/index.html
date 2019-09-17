@@ -20,21 +20,21 @@
                     <p th:text="${post.content}"/>
                     <hr/>
                     <br/>
-                    <div class="row">
-                    <div class="lower-card col-6">
-                        <div>User: <a href="#" th:text="${post.user.username}"/></div>
-                        <div>Email: <a href="#" th:text="${post.user.email}"/></div>
+                         <div class="row">
+                            <div class="lower-card col-6">
+                                <div>User: <a href="#" th:text="${post.user.username}"/></div>
+                                <div>Email: <a href="#" th:text="${post.user.email}"/></div>
                             <hr/>
-                    <a th:href="@{/show/{id}(id=${post.id})}" class="btn btn-sm btn-primary">Show Post</a>
-                    <a th:href="@{/posts/{id}/edit(id=${post.id})}" class="btn btn-sm btn-warning">Edit Post</a>
-                    </div>
-                    </div>
+                                <a th:href="@{/show/{id}(id=${post.id})}" class="btn btn-sm btn-primary">Show Post</a>
+                                <a th:href="@{/posts/{id}/edit(id=${post.id})}" class="btn btn-sm btn-warning">Edit Post</a>
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>
             <div class="table-card col-4">
-                <div class="card">
-                    <h3>Table of Content</h3>
+                <div class="contents-card">
+                    <h3>Our History</h3>
                 </div>
             </div>
         </div>
