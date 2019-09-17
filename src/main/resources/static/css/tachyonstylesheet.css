@@ -1,0 +1,43 @@
+body {
+    max-height: 100%;
+}
+.header-one {
+    margin-left: 5%;
+}
+#theorems {
+    font-family: Cylburn;
+    font-size: 3.4rem;
+    font-weight: lighter;
+    font-stretch: expanded;
+}
+.w-70 {
+    position: relative;
+    float: left;
+}
+.w-10 {
+    margin-right: 5%;
+    margin-top: 1%;
+}
+#ampersand {
+    position: relative;
+    font-family: "Courier New";
+    font-weight: lighter;
+    font-size: 2rem;
+    font-style: italic;
+    padding: 1.2rem;
+    bottom: .25rem;
+}
+#abstractions {
+    font-family: Monoton;
+    font-weight: lighter;
+}
+.menu-group {
+    font-size: x-large;
+    margin-left: 10%;
+    font-family: "Courier New";
+    font-weight: lighter;
+    bottom: 1rem;
+    top: auto;
+    position: fixed;
+    color: black;
+}

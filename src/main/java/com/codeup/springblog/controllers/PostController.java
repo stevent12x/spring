@@ -27,6 +27,12 @@ class PostController {
     private EmailService emailService;
 
     // SpringBlog Controllers //
+
+    @GetMapping(path = "/")
+    public String home() {
+        return "tachyon/home";
+    }
+
     @GetMapping(path = "/posts")
     public String index(Model viewModel) {
         Iterable<Post> posts = postDao.findAll();
