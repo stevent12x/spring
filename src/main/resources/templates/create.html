@@ -9,8 +9,9 @@
 <body>
 <th:block th:replace="fragments/navbar :: top-nav"/>
 
-<main class="container">
+<main class="container sign-in-vody">
 
+    <div class="card-login-body">
     <form th:action="@{'/posts/create'}" th:method="post" th:object="${post}">
         Title: <input type="text" th:field="*{title}"/>
         <br/>
@@ -22,6 +23,7 @@
         <br/>
         <button class="btn btn-info">Post</button>
     </form>
+    </div>
 <th:block th:replace="fragments/footer :: main-footer"/>
 </main>
 </body>

@@ -10,10 +10,4 @@ public class HomeController {
     public String hello() {
         return "<h2>This is the landing page!</h2>";
     }
-
-//    Dice Roll   //
-    @GetMapping("/roll-dice")
-    public String dice() {
-        return "/roll-dice";
-    }
 }
