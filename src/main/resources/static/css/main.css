@@ -1,10 +1,19 @@
-
-
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
  .main {
-     background-color: #ddceba;
+     background: #fc4a1a;  /* fallback for old browsers */
+     background: -webkit-linear-gradient(to top, #c3cdfc, #facd2f);  /* Chrome 10-25, Safari 5.1-6 */
+     background: linear-gradient(to top, #c3cdfc, #facd2f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
      font-family: "IBM Plex Mono";
      font-weight: bold;
      z-index: 100;
+
+     margin-left: 0px;
+     margin-right: 0px;
 }
  .navbar {
      background-color: #facd2f;
@@ -60,6 +69,12 @@
      box-shadow: #e8e8be -2.5rem 2.7rem 5rem ;
      padding: 0px;
  }
+ .card {
+     height: 7.5%;
+     width: 90%;
+     margin-bottom: 1rem;
+ }
+
  .magnifying-glass {
      height: 18px;
      width: 18px;
@@ -68,18 +83,12 @@
      color: crimson;
      box-shadow: #6a6a6a 2.3rem 2.7rem 3rem;
  }
- .card-body {
-    background-color: #faebd7;
-     height: 1001%;
-     width: 101%;
-     border-radius: 2%;
- }
- .card-body:hover {
+
+ .card:hover {
      background-color: #f0f0f0;
-     height: 102%;
-     width: 102%;
-     border-radius: 2%;
+     width: 125%;
      cursor: grabbing;
+     z-index: 1000;
  }
  .login-body {
      background-image: url("../img/CanvaGiraffe.jpg");
@@ -99,7 +108,6 @@
  }
 
  @keyframes flicker {
-
      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
 
          text-shadow: -0.2rem -0.2rem 1rem #cb7b29,
@@ -122,5 +130,18 @@
          text-shadow: none;
          box-shadow: none;
      }
+ }
+
+ #error-div {
+     position: relative;
+     height: 100%;
+     width: 100%;
+ }
+ #error-div img{
+     position: relative;
+     margin-right: 50%;
+     margin-left: 50%;
+     /*horiz-align: center;*/
+     transform: translate(-50%, -50%);
  }
 

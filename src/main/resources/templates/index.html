@@ -9,19 +9,32 @@
 <body>
 <th:block th:replace="fragments/navbar :: top-nav"/>
 
-    <main class="main">
-        <div class="card-columns">
+    <main class="main container-fluid">
+        <hr/>
+        <div class="row">
+        <div class="main-card col-8">
             <div th:each="post : ${posts}" class="card">
+
                 <div class="card-body">
                     <h3 th:text="${post.title}"/>
                     <p th:text="${post.content}"/>
-                    <br/>
                     <hr/>
-                    <div>User: <a href="#" th:text="${post.user.username}"></a></div>
-                    <div>Email: <a href="#" th:text="${post.user.email}"/></div>
                     <br/>
+                    <div class="row">
+                    <div class="lower-card col-6">
+                        <div>User: <a href="#" th:text="${post.user.username}"/></div>
+                        <div>Email: <a href="#" th:text="${post.user.email}"/></div>
+                            <hr/>
                     <a th:href="@{/show/{id}(id=${post.id})}" class="btn btn-sm btn-primary">Show Post</a>
                     <a th:href="@{/posts/{id}/edit(id=${post.id})}" class="btn btn-sm btn-warning">Edit Post</a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="table-card col-4">
+                <div class="card">
+                    <h3>Table of Content</h3>
                 </div>
             </div>
         </div>

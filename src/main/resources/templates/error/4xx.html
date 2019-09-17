@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="fragments/header :: main-header('DANGER WILL ROBINSON!')" />
+</head>
+<body>
+<th:block th:switch="${error}">
+    <div th:case="'Not Found'">
+        <h1>Can't Find the Page You're Looking For?</h1>
+    </div>
+    <div th:case="'Forbidden'">
+        <h1>Going Places Where You Don't Belong?</h1>
+    </div>
+    <br/>
+</th:block>
+<div id="error-div">
+    <img src="../img/zoid.png" alt="Why Not Zoidberg?"/>
+</div>
+</body>
+</html>
