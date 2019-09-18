@@ -1,5 +1,6 @@
 body {
     max-height: 100%;
+    font-family: Scripthead;
 }
 .header-one {
     margin-left: 5%;
@@ -34,10 +35,22 @@ body {
 .menu-group {
     font-size: x-large;
     margin-left: 10%;
-    font-family: "Courier New";
+    font-family: Scripthead;
     font-weight: lighter;
-    bottom: 1rem;
+    bottom: 10%;
     top: auto;
     position: fixed;
     color: black;
+}
+.main-grouping {
+    position: fixed;
+    top: 25%;
+    bottom: 10%;
+    right: 5%;
+    left: 50%;
+}
+.signature {
+    font-size: 0.75em;
+    margin-top: 0;
+    margin-bottom: 0;
 }

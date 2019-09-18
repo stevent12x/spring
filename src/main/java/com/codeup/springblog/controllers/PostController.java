@@ -28,23 +28,23 @@ class PostController {
 
     // SpringBlog Controllers //
 
-    @GetMapping(path = "/")
-    public String home() {
-        return "tachyon/home";
-    }
+//    @GetMapping(path = "/")
+//    public String home() {
+//        return "tachyon/home";
+//    }
 
     @GetMapping(path = "/posts")
     public String index(Model viewModel) {
         Iterable<Post> posts = postDao.findAll();
         viewModel.addAttribute("posts", posts);
-        return "/index";
+        return "index";
     }
 
     @GetMapping(path = "/profile")
     public String userPosts(Model viewModel, User user) {
         Iterable<Post> userPosts = postDao.findAll();
         viewModel.addAttribute("userPosts", userPosts);
-        return "/profile";
+        return "profile";
 
     }
 
@@ -52,13 +52,13 @@ class PostController {
     public String show(@PathVariable long id, Model viewModel) {
         Post post = postDao.findOne(id);
         viewModel.addAttribute("post", post);
-        return "/show";
+        return "show";
     }
 
     @GetMapping("/posts/create")
     public String showCreateForm(Model model) {
         model.addAttribute("post", new Post());
-        return "/create";
+        return "create";
     }
 
     @PostMapping("/posts/create")
@@ -80,7 +80,7 @@ class PostController {
     public String editPost(@PathVariable long id, Model vModel){
         Post post = postDao.findOne(id);
         vModel.addAttribute("post", post);
-        return "/edit";
+        return "edit";
     }
 
     @PostMapping("/posts/{id}/edit")
@@ -121,6 +121,6 @@ class PostController {
 
     @GetMapping("/posts/ajax")
     public String viewAllPostsWithAjax() {
-        return "/ajax";
+        return "ajax";
     }
 }
