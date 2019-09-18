@@ -16,7 +16,7 @@
 
     <properties>
         <java.version>8</java.version>
-        <skipTest>true</skipTest>
+        <skipTests>true</skipTests>
     </properties>
 
     <dependencies>
